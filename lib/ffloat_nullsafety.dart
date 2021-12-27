@@ -717,7 +717,9 @@ class _FFloatContentState extends State<_FFloatContent>
     scaleAnimation =
         Tween<double>(begin: 0.0, end: 1.0).animate(animationController!);
     scaleAnimation.addListener(() {
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     });
     scaleAnimation.addStatusListener((status) {
 //      print('scaleAnimation.status = ${status.toString()}');
