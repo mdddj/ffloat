@@ -328,7 +328,7 @@ class _FFloatState extends State<FFloat> {
   }
 
   void postUpdateCallback() {
-    WidgetsBinding.instance!.addPostFrameCallback((time) {
+    WidgetsBinding.instance.addPostFrameCallback((time) {
       if (!mounted) return;
       RenderBox? box = key.currentContext!.findRenderObject() as RenderBox?;
       Offset? location = box?.localToGlobal(Offset.zero);
@@ -363,7 +363,7 @@ class _FFloatState extends State<FFloat> {
     if (_float != null) {
       asyncParams();
       if (_float!.isShow) {
-        WidgetsBinding.instance!.addPostFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           if (!mounted) return;
           if (_float != null) {
             _float!._showFloat();
@@ -760,7 +760,7 @@ class _FFloatContentState extends State<_FFloatContent>
   }
 
   void postUpdateCallback() {
-    WidgetsBinding.instance!.addPostFrameCallback((time) {
+    WidgetsBinding.instance.addPostFrameCallback((time) {
       if (!mounted) return;
       RenderBox? box = key.currentContext?.findRenderObject() as RenderBox?;
       Size? size = box?.size;
@@ -818,8 +818,8 @@ class _FFloatContentState extends State<_FFloatContent>
     Widget content = buildFloatContent();
     children.add(content);
     return Stack(
-      overflow: Overflow.visible,
-      // clipBehavior: Clip.antiAlias,
+      // overflow: Overflow.visible,
+      clipBehavior: Clip.antiAlias,
       children: children,
     );
   }
@@ -906,8 +906,8 @@ class _FFloatContentState extends State<_FFloatContent>
             scale: scaleAnimation.value,
             alignment: matchScaleAnim(widget.anchorSize == Size.zero),
             child: Stack(
-              overflow: Overflow.visible,
-              // clipBehavior: Clip.antiAlias,
+              // overflow: Overflow.visible,
+              clipBehavior: Clip.antiAlias,
               children: children,
             ),
           ),
