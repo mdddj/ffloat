@@ -66,7 +66,7 @@ enum FFloatAlignment {
 /// 用于返回一个 [Widget]，如果只更新内容区域的话，通过 setter((){}) 进行
 ///
 /// Used to return a [Widget], if only the content area is updated, through setter (() {})
-typedef FloatBuilder = Widget Function(StateSetter setter);
+typedef FloatBuilder = Widget Function(StateSetter setter,State<_FFloatContent> contentState);
 
 /// [FFloat] 能够在屏幕的任意位置浮出一个组件。甚至可以基于 [anchor] 锚点组件来动态的确定漂浮组件的位置。
 /// [FFloat] 同时提供了绝妙的配置选项。圆角、描边、背景、偏移、装饰三角。
@@ -868,7 +868,7 @@ class _FFloatContentState extends State<_FFloatContent>
       decoration: decoration,
       padding: widget.padding,
       key: key,
-      child: widget.builder != null ? widget.builder!(setState) : Container(),
+      child: widget.builder != null ? widget.builder?.call(setState,this) : Container(),
     );
     children.add(content);
     if (areaSize != null) {
