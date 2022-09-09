@@ -1,6 +1,6 @@
 name: ffloat_nullsafety
 description: FFloat, although simple and easy to use, can satisfy all your imagination of the floating layer.
-version: 3.0.1
+version: 3.3.1
 homepage: https://github.com/Fliggy-Mobile/ffloat
 
 environment:
